@@ -2,6 +2,8 @@ package br.com.FormularioCadastro.core.useCases;
 
 import br.com.FormularioCadastro.core.domain.Pessoa;
 import br.com.FormularioCadastro.core.gateways.PessoaGateway;
+import br.com.FormularioCadastro.core.useCases.interf.CreatePessoaUseCase;
+import br.com.FormularioCadastro.infraEstrutura.exceptions.BusinessException;
 
 public class CreatePessoaUseCaseImp implements CreatePessoaUseCase {
 
@@ -10,8 +12,13 @@ public class CreatePessoaUseCaseImp implements CreatePessoaUseCase {
     public CreatePessoaUseCaseImp(PessoaGateway pessoaGateway){
         this.pessoaGateway = pessoaGateway;
     }
+    
     @Override
     public Pessoa execute(Pessoa pessoa) {
+    	Pessoa pessoExistente = pessoaGateway.findByCpfCnpj(pessoa.cpfCnj());
+    	if (pessoExistente != null) {
+			throw new BusinessException("Já existe um cpf/cnpj cadastrado");
+		}
         return pessoaGateway.createPessoa(pessoa);
     }
 }
