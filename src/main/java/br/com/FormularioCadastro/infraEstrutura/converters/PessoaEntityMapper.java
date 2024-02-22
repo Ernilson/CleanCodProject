@@ -8,7 +8,13 @@ import org.springframework.stereotype.Component;
 public class PessoaEntityMapper {
 
     public PessoaEntity DomaintoEntity(Pessoa pessoa){
-        return new PessoaEntity(pessoa.id(), pessoa.nome(), pessoa.email(), pessoa.cpfCnj(), pessoa.tipo());
+        PessoaEntity pessoaEntity = new PessoaEntity();
+       // pessoaEntity.setId(""); // Definindo o ID como nulo para que o framework JPA possa gerar automaticamente
+        pessoaEntity.setNome(pessoa.nome());
+        pessoaEntity.setEmail(pessoa.email());
+        pessoaEntity.setCpfCnpj(pessoa.cpfCnj());
+        pessoaEntity.setTipo(pessoa.tipo());
+        return pessoaEntity;
     }
 
     public Pessoa EntityToDomain(PessoaEntity entity){
