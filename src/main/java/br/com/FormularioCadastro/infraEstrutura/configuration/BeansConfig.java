@@ -5,9 +5,11 @@ import org.springframework.context.annotation.Configuration;
 
 import br.com.FormularioCadastro.core.gateways.PessoaGateway;
 import br.com.FormularioCadastro.core.useCases.CreatePessoaUseCaseImp;
+import br.com.FormularioCadastro.core.useCases.DeleteByIdPessoaUseCaseImpl;
 import br.com.FormularioCadastro.core.useCases.GetAllPessoaUseCaseImpl;
 import br.com.FormularioCadastro.core.useCases.GetByIdPessoaUseCaseImpl;
 import br.com.FormularioCadastro.core.useCases.interf.CreatePessoaUseCase;
+import br.com.FormularioCadastro.core.useCases.interf.DeleteByIdPessoaUseCase;
 import br.com.FormularioCadastro.core.useCases.interf.GetAllPessoasUseCase;
 import br.com.FormularioCadastro.core.useCases.interf.GetByIdPessoaUseCase;
 
@@ -27,5 +29,10 @@ public class BeansConfig {
     @Bean
     public GetByIdPessoaUseCase getByIdPessoaUseCase(PessoaGateway pessoaGateway){
     	return new GetByIdPessoaUseCaseImpl(pessoaGateway);
+    }
+    
+    @Bean
+    public DeleteByIdPessoaUseCase DeleteById(PessoaGateway pessoaGateway) {
+    	return new DeleteByIdPessoaUseCaseImpl(pessoaGateway);
     }
 }

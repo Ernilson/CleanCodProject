@@ -51,4 +51,13 @@ public class PessoaRepositoryGatway implements PessoaGateway {
 		}
 		return Optional.empty();
 	}
+
+	@Override
+	public void delete(Long id) {
+		 Optional<PessoaEntity> entityOptional = repository.findById(id);
+		 if (entityOptional.isPresent()) {
+			 entityOptional.ifPresent(entity -> repository.deleteById(id));
+		}		   
+				
+	}
 }

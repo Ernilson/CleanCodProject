@@ -13,4 +13,7 @@ public interface PessoaGateway {
 	List<Pessoa> obtenAllPessoas();
 
 	Optional<Pessoa> findById(Long id);
+	
+	void delete(Long id);
+	
 }
