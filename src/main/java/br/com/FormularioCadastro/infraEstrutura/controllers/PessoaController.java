@@ -1,9 +1,11 @@
 package br.com.FormularioCadastro.infraEstrutura.controllers;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.FormularioCadastro.core.domain.Pessoa;
 import br.com.FormularioCadastro.core.useCases.interf.CreatePessoaUseCase;
 import br.com.FormularioCadastro.core.useCases.interf.GetAllPessoasUseCase;
+import br.com.FormularioCadastro.core.useCases.interf.GetByIdPessoaUseCase;
 import br.com.FormularioCadastro.infraEstrutura.converters.PessoaDTOMapper;
 import br.com.FormularioCadastro.infraEstrutura.dtos.PessoaDTO;
 import lombok.AllArgsConstructor;
@@ -24,6 +27,7 @@ public class PessoaController {
     private final CreatePessoaUseCase createPessoaUseCase;
     private final PessoaDTOMapper mapper;
     private final GetAllPessoasUseCase getAllPessoaUseCase;
+    private final GetByIdPessoaUseCase getByIdPessoaUseCase;
 
     @PostMapping
     public PessoaDTO createPessoa(@RequestBody PessoaDTO pessoaDTO){
@@ -36,5 +40,18 @@ public class PessoaController {
     	return getAllPessoaUseCase.execute()
     			.stream().map(pessoa -> mapper.toDTO(pessoa))
     			.collect(Collectors.toList());    	
+    }
+    
+    @GetMapping("/{id}")
+    public Optional<PessoaDTO> buscarCadasroPorI(@PathVariable Long id){
+    	Optional<Pessoa> pessoaOptional = getByIdPessoaUseCase.getById(id);
+    	
+        if (pessoaOptional.isPresent()) {
+        	Pessoa pessoa = pessoaOptional.get();
+            PessoaDTO pessoaDTO = mapper.toDTO(pessoa);
+            return Optional.of(pessoaDTO);
+        } else {
+            return Optional.empty(); 
+        }
     }
 }
