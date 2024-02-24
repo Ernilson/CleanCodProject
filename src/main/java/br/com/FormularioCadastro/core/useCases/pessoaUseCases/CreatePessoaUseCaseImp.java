@@ -1,8 +1,8 @@
-package br.com.FormularioCadastro.core.useCases;
+package br.com.FormularioCadastro.core.useCases.pessoaUseCases;
 
 import br.com.FormularioCadastro.core.domain.Pessoa;
 import br.com.FormularioCadastro.core.gateways.PessoaGateway;
-import br.com.FormularioCadastro.core.useCases.interf.CreatePessoaUseCase;
+import br.com.FormularioCadastro.core.useCases.pessoaUseCases.Inter.CreatePessoaUseCase;
 import br.com.FormularioCadastro.infraEstrutura.exceptions.BusinessException;
 
 public class CreatePessoaUseCaseImp implements CreatePessoaUseCase {

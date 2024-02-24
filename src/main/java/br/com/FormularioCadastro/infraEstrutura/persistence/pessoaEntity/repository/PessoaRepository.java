@@ -1,6 +1,6 @@
-package br.com.FormularioCadastro.infraEstrutura.persistence.repository;
+package br.com.FormularioCadastro.infraEstrutura.persistence.pessoaEntity.repository;
 
-import br.com.FormularioCadastro.infraEstrutura.persistence.PessoaEntity;
+import br.com.FormularioCadastro.infraEstrutura.persistence.pessoaEntity.PessoaEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

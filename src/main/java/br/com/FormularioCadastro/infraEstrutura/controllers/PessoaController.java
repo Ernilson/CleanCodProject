@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.FormularioCadastro.core.domain.Pessoa;
-import br.com.FormularioCadastro.core.useCases.interf.CreatePessoaUseCase;
-import br.com.FormularioCadastro.core.useCases.interf.DeleteByIdPessoaUseCase;
-import br.com.FormularioCadastro.core.useCases.interf.GetAllPessoasUseCase;
-import br.com.FormularioCadastro.core.useCases.interf.GetByIdPessoaUseCase;
-import br.com.FormularioCadastro.infraEstrutura.converters.PessoaDTOMapper;
+import br.com.FormularioCadastro.core.useCases.pessoaUseCases.Inter.CreatePessoaUseCase;
+import br.com.FormularioCadastro.core.useCases.pessoaUseCases.Inter.DeleteByIdPessoaUseCase;
+import br.com.FormularioCadastro.core.useCases.pessoaUseCases.Inter.GetAllPessoasUseCase;
+import br.com.FormularioCadastro.core.useCases.pessoaUseCases.Inter.GetByIdPessoaUseCase;
+import br.com.FormularioCadastro.infraEstrutura.converters.pessoaConverter.PessoaDtoConverter;
 import br.com.FormularioCadastro.infraEstrutura.dtos.PessoaDTO;
 import lombok.AllArgsConstructor;
 
@@ -29,7 +29,7 @@ import lombok.AllArgsConstructor;
 public class PessoaController {
 
     private final CreatePessoaUseCase createPessoaUseCase;
-    private final PessoaDTOMapper mapper;
+    private final PessoaDtoConverter mapper;
     private final GetAllPessoasUseCase getAllPessoaUseCase;
     private final GetByIdPessoaUseCase getByIdPessoaUseCase;
     private final DeleteByIdPessoaUseCase deletePessoa;

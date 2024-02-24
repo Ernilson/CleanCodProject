@@ -1,11 +1,11 @@
-package br.com.FormularioCadastro.infraEstrutura.converters;
+package br.com.FormularioCadastro.infraEstrutura.converters.pessoaConverter;
 
 import br.com.FormularioCadastro.core.domain.Pessoa;
-import br.com.FormularioCadastro.infraEstrutura.persistence.PessoaEntity;
+import br.com.FormularioCadastro.infraEstrutura.persistence.pessoaEntity.PessoaEntity;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PessoaEntityMapper {
+public class PessoaEntityConverter {
 
     public PessoaEntity DomaintoEntity(Pessoa pessoa){
         PessoaEntity pessoaEntity = new PessoaEntity();

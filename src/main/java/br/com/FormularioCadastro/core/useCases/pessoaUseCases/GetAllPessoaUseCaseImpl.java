@@ -1,10 +1,10 @@
-package br.com.FormularioCadastro.core.useCases;
+package br.com.FormularioCadastro.core.useCases.pessoaUseCases;
 
 import java.util.List;
 
 import br.com.FormularioCadastro.core.domain.Pessoa;
 import br.com.FormularioCadastro.core.gateways.PessoaGateway;
-import br.com.FormularioCadastro.core.useCases.interf.GetAllPessoasUseCase;
+import br.com.FormularioCadastro.core.useCases.pessoaUseCases.Inter.GetAllPessoasUseCase;
 
 public class GetAllPessoaUseCaseImpl implements GetAllPessoasUseCase{
 	

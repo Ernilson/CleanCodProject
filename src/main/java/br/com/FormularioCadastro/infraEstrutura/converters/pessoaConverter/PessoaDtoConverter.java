@@ -1,11 +1,11 @@
-package br.com.FormularioCadastro.infraEstrutura.converters;
+package br.com.FormularioCadastro.infraEstrutura.converters.pessoaConverter;
 
 import br.com.FormularioCadastro.core.domain.Pessoa;
 import br.com.FormularioCadastro.infraEstrutura.dtos.PessoaDTO;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PessoaDTOMapper {
+public class PessoaDtoConverter {
 	public PessoaDTO toDTO(Pessoa pessoa) {
 		return new PessoaDTO(pessoa.nome(), pessoa.email(), pessoa.cpfCnj(), pessoa.tipo());
 	}

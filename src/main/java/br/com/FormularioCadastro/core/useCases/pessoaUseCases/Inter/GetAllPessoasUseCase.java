@@ -1,4 +1,4 @@
-package br.com.FormularioCadastro.core.useCases.interf;
+package br.com.FormularioCadastro.core.useCases.pessoaUseCases.Inter;
 
 import java.util.List;
 

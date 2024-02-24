@@ -1,7 +1,7 @@
-package br.com.FormularioCadastro.core.useCases;
+package br.com.FormularioCadastro.core.useCases.pessoaUseCases;
 
 import br.com.FormularioCadastro.core.gateways.PessoaGateway;
-import br.com.FormularioCadastro.core.useCases.interf.DeleteByIdPessoaUseCase;
+import br.com.FormularioCadastro.core.useCases.pessoaUseCases.Inter.DeleteByIdPessoaUseCase;
 
 public class DeleteByIdPessoaUseCaseImpl implements DeleteByIdPessoaUseCase{
 	

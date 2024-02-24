@@ -1,4 +1,4 @@
-package br.com.FormularioCadastro.infraEstrutura.persistence;
+package br.com.FormularioCadastro.infraEstrutura.persistence.pessoaEntity;
 
 import br.com.FormularioCadastro.core.enums.EnumTipoPessoa;
 import jakarta.persistence.*;

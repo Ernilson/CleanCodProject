@@ -8,17 +8,17 @@ import org.springframework.stereotype.Component;
 
 import br.com.FormularioCadastro.core.domain.Pessoa;
 import br.com.FormularioCadastro.core.gateways.PessoaGateway;
-import br.com.FormularioCadastro.infraEstrutura.converters.PessoaEntityMapper;
-import br.com.FormularioCadastro.infraEstrutura.persistence.PessoaEntity;
-import br.com.FormularioCadastro.infraEstrutura.persistence.repository.PessoaRepository;
+import br.com.FormularioCadastro.infraEstrutura.converters.pessoaConverter.PessoaEntityConverter;
+import br.com.FormularioCadastro.infraEstrutura.persistence.pessoaEntity.PessoaEntity;
+import br.com.FormularioCadastro.infraEstrutura.persistence.pessoaEntity.repository.PessoaRepository;
 import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class PessoaRepositoryGatway implements PessoaGateway {
+public class PessoaService implements PessoaGateway {
 
 	private final PessoaRepository repository;
-	private final PessoaEntityMapper entityMapper;
+	private final PessoaEntityConverter entityMapper;
 
 	@Override
 	public Pessoa createPessoa(Pessoa pessoa) {
