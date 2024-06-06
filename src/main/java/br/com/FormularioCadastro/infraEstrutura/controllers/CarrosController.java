@@ -1,7 +1,6 @@
 package br.com.FormularioCadastro.infraEstrutura.controllers;
 
 import br.com.FormularioCadastro.core.domain.Carros;
-import br.com.FormularioCadastro.core.domain.Pessoa;
 import br.com.FormularioCadastro.core.useCases.carroUseCase.Inter.CreateCarroUseCase;
 import br.com.FormularioCadastro.core.useCases.carroUseCase.Inter.FindByIdCarrosUseCase;
 import br.com.FormularioCadastro.infraEstrutura.converters.carroConverter.CarrosDtoConverter;
@@ -16,6 +15,7 @@ public class CarrosController {
     private final CreateCarroUseCase createCarroUseCase;
     private final FindByIdCarrosUseCase findByIdCarrosUseCase;
     private final CarrosDtoConverter carrosDtoConverter;
+
     public CarrosController(CreateCarroUseCase createCarroUseCase, FindByIdCarrosUseCase findByIdCarrosUseCase,
                             CarrosDtoConverter carrosDtoConverter){
         this.createCarroUseCase = createCarroUseCase;
