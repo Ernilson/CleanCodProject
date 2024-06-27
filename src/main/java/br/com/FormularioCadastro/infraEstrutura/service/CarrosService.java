@@ -2,10 +2,9 @@ package br.com.FormularioCadastro.infraEstrutura.service;
 
 import br.com.FormularioCadastro.core.domain.Carros;
 import br.com.FormularioCadastro.core.gateways.CarroGateway;
-import br.com.FormularioCadastro.infraEstrutura.converters.carroConverter.CarroEntityConverter;
+import br.com.FormularioCadastro.infraEstrutura.mapper.CarrosMapper;
 import br.com.FormularioCadastro.infraEstrutura.persistence.carrosEntity.CarrosEntity;
 import br.com.FormularioCadastro.infraEstrutura.persistence.carrosEntity.repository.CarrosRepository;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -13,18 +12,18 @@ import java.util.Optional;
 @Service
 public class CarrosService implements CarroGateway {
     private final CarrosRepository repository;
-    private final CarroEntityConverter carroEntityConverter;
+    private final CarrosMapper mapper;
 
-    public CarrosService(CarrosRepository repository, CarroEntityConverter carroEntityConverter ){
+    public CarrosService(CarrosRepository repository, CarrosMapper mapper ){
         this.repository = repository;
-        this.carroEntityConverter = carroEntityConverter;
+        this.mapper = mapper;
     }
 
     @Override
     public Carros createCarros(Carros carros) {
-      CarrosEntity entity = carroEntityConverter.DomainToEntity(carros);
+      CarrosEntity entity = mapper.toCarroEntity(carros);
       CarrosEntity novoCarro = repository.save(entity);
-      return carroEntityConverter.EntityToDomain(novoCarro);
+      return mapper.toCarros(novoCarro);
     }
 
     @Override
@@ -32,7 +31,7 @@ public class CarrosService implements CarroGateway {
         Optional<CarrosEntity> entityOptional = repository.findById(id);
         if (entityOptional.isPresent()){
             CarrosEntity entity = entityOptional.get();
-            return Optional.of(carroEntityConverter.EntityToDomain(entity));
+            return Optional.of(mapper.toCarros(entity));
         }
         return Optional.empty();
     }

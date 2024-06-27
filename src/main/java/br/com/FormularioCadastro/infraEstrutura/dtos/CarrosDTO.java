@@ -1,5 +1,7 @@
 package br.com.FormularioCadastro.infraEstrutura.dtos;
 
+import br.com.FormularioCadastro.infraEstrutura.persistence.pessoaEntity.PessoaEntity;
+
 public class CarrosDTO {
 
     private String nome;
@@ -12,15 +14,18 @@ public class CarrosDTO {
 
     private Integer chassi;
 
+    private PessoaEntity pessoaEntity;
+
     public CarrosDTO() {
     }
 
-    public CarrosDTO(String nome, String placa, Long ano, String cor, Integer chassi) {
+    public CarrosDTO(String nome, String placa, Long ano, String cor, Integer chassi, PessoaEntity pessoaEntity) {
         this.nome = nome;
         this.placa = placa;
         this.ano = ano;
         this.cor = cor;
         this.chassi = chassi;
+        this.pessoaEntity = pessoaEntity;
     }
 
     public String getNome() {
@@ -61,5 +66,13 @@ public class CarrosDTO {
 
     public void setChassi(Integer chassi) {
         this.chassi = chassi;
+    }
+
+    public PessoaEntity getPessoaEntity() {
+        return pessoaEntity;
+    }
+
+    public void setPessoaEntity(PessoaEntity pessoaEntity) {
+        this.pessoaEntity = pessoaEntity;
     }
 }

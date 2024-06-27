@@ -15,7 +15,7 @@ public class CreatePessoaUseCaseImp implements CreatePessoaUseCase {
     
     @Override
     public Pessoa execute(Pessoa pessoa) {
-    	Pessoa pessoExistente = pessoaGateway.findByCpfCnpj(pessoa.getCpfCnj());
+    	Pessoa pessoExistente = pessoaGateway.findByCpfCnpj(pessoa.getCpfCnpj());
     	if (pessoExistente != null) {
 			throw new BusinessException("Já existe um cpf/cnpj cadastrado");
 		}

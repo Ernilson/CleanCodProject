@@ -17,10 +17,10 @@ public class Carros {
 
     private Pessoa pessoa;
 
-    public Carros(Long id, String nome, String placa, Long ano, String cor, Integer chassi, PessoaEntity pessoaEntity) {
+    public Carros() {
     }
 
-    public Carros(Long id, String nome, String placa, Long ano, String cor, Integer chassi) {
+    public Carros(Long id, String nome, String placa, Long ano, String cor, Integer chassi, Pessoa pessoa) {
         this.id = id;
         this.nome = nome;
         this.placa = placa;

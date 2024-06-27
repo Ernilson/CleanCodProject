@@ -5,16 +5,16 @@ import br.com.FormularioCadastro.core.enums.EnumTipoPessoa;
 public class PessoaDTO {
     String nome;
     String email;
-    String cpfCnj;
+    String cpfCnpj;
     EnumTipoPessoa tipo;
 
     public PessoaDTO() {
     }
 
-    public PessoaDTO(String nome, String email, String cpfCnj, EnumTipoPessoa tipo) {
+    public PessoaDTO(String nome, String email, String cpfCnpj, EnumTipoPessoa tipo) {
         this.nome = nome;
         this.email = email;
-        this.cpfCnj = cpfCnj;
+        this.cpfCnpj = cpfCnpj;
         this.tipo = tipo;
     }
 
@@ -34,12 +34,12 @@ public class PessoaDTO {
         this.email = email;
     }
 
-    public String getCpfCnj() {
-        return cpfCnj;
+    public String getCpfCnpj() {
+        return cpfCnpj;
     }
 
-    public void setCpfCnj(String cpfCnj) {
-        this.cpfCnj = cpfCnj;
+    public void setCpfCnpj(String cpfCnpj) {
+        this.cpfCnpj = cpfCnpj;
     }
 
     public EnumTipoPessoa getTipo() {
