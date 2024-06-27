@@ -1,5 +1,7 @@
 package br.com.FormularioCadastro.infraEstrutura.persistence.carrosEntity;
 
+import br.com.FormularioCadastro.core.domain.Pessoa;
+import br.com.FormularioCadastro.infraEstrutura.persistence.pessoaEntity.PessoaEntity;
 import jakarta.persistence.*;
 
 @Entity
@@ -20,17 +22,20 @@ public class CarrosEntity {
 
     private Integer chassi;
 
-    public CarrosEntity() {
+    @ManyToOne
+    private PessoaEntity pessoaEntity;
 
+    public CarrosEntity() {
     }
 
-    public CarrosEntity(Long id, String nome, String placa, Long ano, String cor, Integer chassi) {
+    public CarrosEntity(Long id, String nome, String placa, Long ano, String cor, Integer chassi, PessoaEntity pessoaEntity) {
         this.id = id;
         this.nome = nome;
         this.placa = placa;
         this.ano = ano;
         this.cor = cor;
         this.chassi = chassi;
+        this.pessoaEntity = pessoaEntity;
     }
 
     public Long getId() {
@@ -79,5 +84,13 @@ public class CarrosEntity {
 
     public void setChassi(Integer chassi) {
         this.chassi = chassi;
+    }
+
+    public PessoaEntity getPessoaEntity() {
+        return pessoaEntity;
+    }
+
+    public void setPessoaEntity(PessoaEntity pessoaEntity) {
+        this.pessoaEntity = pessoaEntity;
     }
 }

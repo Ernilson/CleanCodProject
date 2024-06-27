@@ -5,6 +5,7 @@ import br.com.FormularioCadastro.core.useCases.carroUseCase.CreateCarroUseCaseIm
 import br.com.FormularioCadastro.core.useCases.carroUseCase.FindByIdCarroUseCaseImpl;
 import br.com.FormularioCadastro.core.useCases.carroUseCase.Inter.CreateCarroUseCase;
 import br.com.FormularioCadastro.core.useCases.carroUseCase.Inter.FindByIdCarrosUseCase;
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -20,6 +21,12 @@ import br.com.FormularioCadastro.core.useCases.pessoaUseCases.Inter.GetByIdPesso
 
 @Configuration
 public class BeansConfig {
+
+    @Bean
+    public ModelMapper modelMapper(){
+
+        return new ModelMapper();
+    }
 
     //-------------------------------Pessoas ---------------------------------//
     @Bean

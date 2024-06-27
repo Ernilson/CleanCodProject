@@ -6,10 +6,11 @@ import br.com.FormularioCadastro.infraEstrutura.converters.carroConverter.CarroE
 import br.com.FormularioCadastro.infraEstrutura.persistence.carrosEntity.CarrosEntity;
 import br.com.FormularioCadastro.infraEstrutura.persistence.carrosEntity.repository.CarrosRepository;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-@Component
+@Service
 public class CarrosService implements CarroGateway {
     private final CarrosRepository repository;
     private final CarroEntityConverter carroEntityConverter;
@@ -18,12 +19,14 @@ public class CarrosService implements CarroGateway {
         this.repository = repository;
         this.carroEntityConverter = carroEntityConverter;
     }
+
     @Override
     public Carros createCarros(Carros carros) {
       CarrosEntity entity = carroEntityConverter.DomainToEntity(carros);
       CarrosEntity novoCarro = repository.save(entity);
       return carroEntityConverter.EntityToDomain(novoCarro);
     }
+
     @Override
     public Optional<Carros> findById(Long id) {
         Optional<CarrosEntity> entityOptional = repository.findById(id);
