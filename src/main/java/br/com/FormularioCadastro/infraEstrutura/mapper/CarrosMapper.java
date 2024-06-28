@@ -2,11 +2,8 @@ package br.com.FormularioCadastro.infraEstrutura.mapper;
 
 
 import br.com.FormularioCadastro.core.domain.Carros;
-import br.com.FormularioCadastro.core.domain.Pessoa;
 import br.com.FormularioCadastro.infraEstrutura.dtos.CarrosDTO;
-import br.com.FormularioCadastro.infraEstrutura.dtos.PessoaDTO;
 import br.com.FormularioCadastro.infraEstrutura.persistence.carrosEntity.CarrosEntity;
-import br.com.FormularioCadastro.infraEstrutura.persistence.pessoaEntity.PessoaEntity;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
@@ -26,17 +23,22 @@ public class CarrosMapper {
         return mapper.map(dto, Carros.class);
     }
 
-    public CarrosDTO toCarrosDTO(Carros carros){
+    public CarrosDTO toCarrosDTO(Carros carros) {
         return mapper.map(carros, CarrosDTO.class);
     }
 
     //-------------------------to Entity ----------------------------------------
-
     public CarrosEntity toCarroEntity(Carros carros) {
         return mapper.map(carros, CarrosEntity.class);
     }
 
     public Carros toCarros(CarrosEntity entity) {
         return mapper.map(entity, Carros.class);
+    }
+
+    public List<CarrosDTO> toCarroDTOList(List<Carros> carrosList) {
+        return carrosList.stream()
+                .map(this::toCarrosDTO)
+                .collect(Collectors.toList());
     }
 }

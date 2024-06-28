@@ -18,11 +18,12 @@ public class PessoaMapper {
         this.mapper = mapper;
     }
 
-    //------------------------------to Pessoa -----------------------------------
+    //De PessoaDTOpara Pessoa -----------------------------------
     public Pessoa toPessoa(PessoaDTO dto) {
         return mapper.map(dto, Pessoa.class);
     }
 
+    //Pessoa para PessoaDTO
     public PessoaDTO toPessoaDTO(Pessoa pessoa) {
         return mapper.map(pessoa, PessoaDTO.class);
     }
@@ -32,8 +33,8 @@ public class PessoaMapper {
                 .map(this::toPessoaDTO)
                 .collect(Collectors.toList());
     }
-    //-------------------------to Entity ----------------------------------------
 
+    //De Pessoa para PessoaEntity ----------------------------------------
     public PessoaEntity toPessoaEntity(Pessoa pessoa) {
         return mapper.map(pessoa, PessoaEntity.class);
     }
